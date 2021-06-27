@@ -1,0 +1,28 @@
+<br>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Identificador</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Fecha de creación</th>
+            <th scope="col">Activo</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let t of tarea">
+            <td>{{t.identificador}}</td>
+            <td>{{t.descripcion}}</td>
+            <td>{{t.fechaCreacion}}</td>
+            <ng-container *ngIf="t.activo; else elseTemplate">
+                <td>Activo</td>
+            </ng-container>
+            <ng-template #elseTemplate>
+                <td>Inactivo</td>
+            </ng-template>
+            <td><a class="btn btn-primary btn-sm" routerLink="/form/{{t.idTarea}}">Ver/Editar</a></td>
+            <td><a class="btn btn-danger btn-sm" (click)="delete(t.idTarea)" >Eliminar</a></td>
+        </tr>
+    </tbody>
+</table>

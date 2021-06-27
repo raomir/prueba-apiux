@@ -1,0 +1,23 @@
+<h2>Crear una Tarea</h2>
+<form [formGroup]="frm" (validSubmit)="saveTarea()">
+    <div>
+        <div class="form-group">
+            <label for="name">Identificador</label>
+            <input formControlName="identificador" type="number" class="form-control" id="identificador" placeholder="Identificador">
+            <bfv-messages></bfv-messages>
+        </div>
+        <div class="form-group">
+            <label for="description">Descripción</label>
+            <input formControlName="descripcion" class="form-control"  placeholder="Descripción">
+            <bfv-messages></bfv-messages>
+        </div>
+        <div class="form-group">
+            <label for="gender">Activo</label>
+            <ui-switch class="js-small pl-3" color="#1abc9c" switchColor="#fff" size="small" formControlName="activo"></ui-switch>
+            <bfv-messages></bfv-messages>
+        </div>
+        <br>
+        <br>
+        <button type="submit" class="btn btn-primary btn-block">Guardar</button>
+    </div>
+</form>
